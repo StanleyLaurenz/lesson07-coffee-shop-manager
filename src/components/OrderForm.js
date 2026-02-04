@@ -12,13 +12,12 @@ export default function OrderForm({ orders, setOrders }) {
 
     const handleAddOrder = (e) => {
         e.preventDefault();
-        
         // ========================================
         // 🎯 EXERCISE useState 1: Reset Coffee Name
         // ========================================
         // TODO: Reset the coffeeName back to empty string after adding order
         // Hint: Use setCoffeeName('') to clear the input field
-
+        setCoffeeName('')
         // ========================================
         // 🎯 EXERCISE useState 2: Update Order Array
         // ========================================
@@ -26,6 +25,13 @@ export default function OrderForm({ orders, setOrders }) {
         // Hint: Use the spread operator to create a new array: [...orders, coffeeName]
         // Hint: Call setOrders with the new array
         // Hint: Add a console.log to see when an order is added
+        if (coffeeName !== '') {
+            orders = [...orders, coffeeName]
+            setOrders(orders)
+            console.log("New order added:",coffeeName)
+            console.log(orders)
+        }
+        
     };
 
     return (
